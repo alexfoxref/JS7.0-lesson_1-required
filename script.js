@@ -1,7 +1,7 @@
 'use strict'
 
-const money = +prompt("Ваш бюджет на месяц?", "50000"),
-    time = prompt("Введите дату в формате YYYY-MM-DD", "2019-04-18");
+const money = +prompt("Ваш бюджет на месяц?", ""),
+    time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
 let appData = {
         budget: money,
@@ -15,12 +15,12 @@ let appData = {
 let answerExpenses,
     answerTotal;
 
-answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", "Кварплата");
-answerTotal = +prompt("Во сколько обойдется?", "5000");
+answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", "");
+answerTotal = +prompt("Во сколько обойдется?", "");
 appData.expenses[answerExpenses] = answerTotal;
 
-answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", "Кварплата");
-answerTotal = +prompt("Во сколько обойдется?", "5000");
+answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", "");
+answerTotal = +prompt("Во сколько обойдется?", "");
 appData.expenses[answerExpenses] = answerTotal;
 
 const budgetPerDay = money/30;
