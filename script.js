@@ -12,18 +12,65 @@ let appData = {
         savings: false
     };
 
-let answerExpenses,
-    answerTotal;
+for (let i = 0; i < 2; i++) {
+    let answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", ""),
+        answerTotal = prompt("Во сколько обойдется?", "");
+    
+    if ( (typeof(answerExpenses)) === 'string' && (typeof(answerExpenses)) != null && (typeof(answerTotal)) != null 
+        && answerExpenses != '' && answerTotal != '' && answerExpenses.length < 50 ) {
+        console.log('done');
+        appData.expenses[answerExpenses] = +answerTotal;
+    } else {
+        i--;
+    }
+}
 
-answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", "");
-answerTotal = +prompt("Во сколько обойдется?", "");
-appData.expenses[answerExpenses] = answerTotal;
+// let i = 0;
 
-answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", "");
-answerTotal = +prompt("Во сколько обойдется?", "");
-appData.expenses[answerExpenses] = answerTotal;
+// // Цикл while
+// while (i < 2) {
+//     let answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", ""),
+//         answerTotal = prompt("Во сколько обойдется?", "");
+    
+//     if ( (typeof(answerExpenses)) === 'string' && (typeof(answerExpenses)) != null && (typeof(answerTotal)) != null 
+//         && answerExpenses != '' && answerTotal != '' && answerExpenses.length < 50 ) {
+//         console.log('done');
+//         appData.expenses[answerExpenses] = +answerTotal;
+//     } else {
+//         i--;
+//     };
 
-const budgetPerDay = money/30;
+//     i++;
+// };
+
+// // Цикл do - while
+// do {
+//     let answerExpenses = prompt("Введите обязательную статью расходов в этом месяце", ""),
+//         answerTotal = prompt("Во сколько обойдется?", "");
+    
+//     if ( (typeof(answerExpenses)) === 'string' && (typeof(answerExpenses)) != null && (typeof(answerTotal)) != null 
+//         && answerExpenses != '' && answerTotal != '' && answerExpenses.length < 50 ) {
+//         console.log('done');
+//         appData.expenses[answerExpenses] = +answerTotal;
+//     } else {
+//         i--;
+//     };
+
+//     i++;
+// }
+// while (i < 2);
+
+appData.budgetPerDay = appData.budget / 30;
 // Только мне кажется, что бюджет это доходы минус расходы,
 // а тут просто зарплата делить на кол-во дней
-console.log(budgetPerDay);
+alert('Ежедневный бюджет: ' + appData.budgetPerDay);
+
+if (appData.budgetPerDay < 100) {
+    console.log("Минимальный уровень достатка");
+} else if (appData.budgetPerDay > 100 && appData.budgetPerDay < 2000) {
+    console.log("Средний уровень достатка");
+} else if (appData.budgetPerDay > 2000) {
+    console.log("Высокий уровень достатка");
+} else {
+    console.log("Произошла ошибка");
+};
